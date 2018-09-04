@@ -9,21 +9,24 @@ def maxSumIS(arr, n):
     # Initialize msis values for all indexes
     for i in range(n):
         msis[i] = arr[i]
-
+    max_l = 1
     # Compute maximum sum values in bottom up manner
     for i in range(1, n):
+        l = 1
         for j in range(i):
-            print (arr[i],'-',arr[j])
             if arr[i] > arr[j]:
                 msis[i] = msis[j] + arr[i]
+                l += 1
+                print (arr[i], '-', arr[j])
+                if l>max_l:
+                    max_l = l
 
     # Pick maximum of all msis values
-    print(msis)
     for i in range(n):
         if max < msis[i]:
             max = msis[i]
 
-    return max
+    return max_l,max
 arr = [1, 101, 2, 3, 100, 4, 5]
 n = len(arr)
 print("Sum of maximum sum increasing subsequence is " +
