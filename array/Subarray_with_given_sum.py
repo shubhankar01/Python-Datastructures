@@ -12,7 +12,7 @@ while j < len(n):
     else:
         curr_sum += n[j]
 
-    while curr_sum > s and i <j-1:
+    while curr_sum > s and i <=j-1:
         curr_sum -= n[i]
         i += 1
     j += 1
