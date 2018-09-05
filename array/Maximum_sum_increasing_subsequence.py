@@ -14,20 +14,20 @@ def maxSumIS(arr, n):
     for i in range(1, n):
         l = 1
         for j in range(i):
-            if arr[i] > arr[j]:
+            if arr[i] > arr[j] and msis[i]<msis[j] + arr[i]:
                 msis[i] = msis[j] + arr[i]
                 l += 1
-                print (arr[i], '-', arr[j])
                 if l>max_l:
                     max_l = l
+                # break
 
     # Pick maximum of all msis values
     for i in range(n):
         if max < msis[i]:
             max = msis[i]
-
+    print(msis)
     return max_l,max
-arr = [1, 101, 2, 3, 100, 4, 5]
+arr = [1, 101, 2, 1, 100, 4, 5, 6, 7, 8]
 n = len(arr)
 print("Sum of maximum sum increasing subsequence is " +
        str(maxSumIS(arr, n)))
